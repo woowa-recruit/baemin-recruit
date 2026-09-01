@@ -221,42 +221,6 @@
   .step-name { font-size: 14px; font-weight: 700; color: var(--text-main); }
   .step-desc { font-size: 12px; color: var(--text-sub); margin-top: 3px; line-height: 1.5; }
 
-  /* ── GIFT BANNER ── */
-  .gift-banner {
-    background: var(--navy); border-radius: 18px;
-    padding: 24px 22px; margin-top: 32px;
-    position: relative; overflow: hidden;
-  }
-  .gift-banner::after {
-    content: '🎁'; position: absolute;
-    right: 18px; bottom: -6px;
-    font-size: 68px; opacity: 0.15; pointer-events: none;
-  }
-  .gift-badge {
-    display: inline-block; background: var(--yellow); color: var(--navy);
-    font-size: 10px; font-weight: 900;
-    padding: 3px 10px; border-radius: 100px;
-    letter-spacing: 0.04em; margin-bottom: 12px;
-  }
-  .gift-title { font-size: 16.5px; font-weight: 900; color: var(--white); line-height: 1.5; word-break: keep-all; }
-  .gift-title strong { color: var(--yellow); }
-  .gift-conditions { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
-  .gift-condition-item {
-    display: flex; align-items: flex-start; gap: 8px;
-    font-size: 12.5px; color: rgba(255,255,255,0.7);
-    line-height: 1.6; word-break: keep-all;
-  }
-  .gift-condition-num {
-    background: rgba(255,255,255,0.12); color: var(--mint);
-    font-size: 10px; font-weight: 800;
-    width: 18px; height: 18px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px;
-  }
-  .gift-divider { margin: 12px 0; border: none; border-top: 1px solid rgba(255,255,255,0.1); }
-  .gift-schedule { font-size: 11.5px; color: rgba(255,255,255,0.4); line-height: 1.7; }
-  .gift-schedule span { color: rgba(255,255,255,0.75); font-weight: 600; }
-
   /* ── FOOTER ── */
   .footer { text-align: center; padding: 0 16px 36px; font-size: 11px; color: #b0bfbd; line-height: 1.9; }
   .footer a { color: #b0bfbd; text-decoration: none; }
@@ -268,7 +232,6 @@
     .page { padding: 0 14px 56px; }
     .job-card-title { font-size: 14px; }
     .team-intro-body { font-size: 13px; }
-    .gift-title { font-size: 15.5px; }
   }
 </style>
 </head>
@@ -308,8 +271,8 @@
   <div class="job-list">
     <a class="job-card" href="https://career.woowahan.com/recruitment/R2603087/detail" target="_blank">
       <div class="job-card-left">
-        <div class="job-card-tag">어카운트 매니저 · 전국</div>
-        <div class="job-card-title">배민 B2C 어카운트 매니저</div>
+        <div class="job-card-tag">영업(기존업주) · 전국</div>
+        <div class="job-card-title">배민 영업(기존업주)</div>
         <div class="job-card-pc-notice">지원은 PC에서만 가능해요</div>
       </div>
       <div class="job-card-arrow">
@@ -328,8 +291,8 @@
     </a>
     <a class="job-card" href="https://career.woowahan.com/recruitment/R2603086/detail" target="_blank">
       <div class="job-card-left">
-        <div class="job-card-tag">신규입점 영업 · 전국</div>
-        <div class="job-card-title">배민 영업 (신규입점)</div>
+        <div class="job-card-tag">영업(신규업주) · 전국</div>
+        <div class="job-card-title">배민 영업(신규업주)</div>
         <div class="job-card-pc-notice">지원은 PC에서만 가능해요</div>
       </div>
       <div class="job-card-arrow">
@@ -355,14 +318,14 @@
       <div class="content-icon">🛵</div>
       <div>
         <div class="content-type">팀 스토리</div>
-        <div class="content-title">직영영업팀 · 영업(신규입점) 담당자 편</div>
+        <div class="content-title">직영영업팀 · 영업(신규업주) 담당자 편</div>
       </div>
     </a>
     <a class="content-card" href="https://bcut.baemin.com/7450/" target="_blank">
       <div class="content-icon">🤝</div>
       <div>
         <div class="content-type">팀 스토리</div>
-        <div class="content-title">직영영업팀 · B2C 어카운트 매니저 편</div>
+        <div class="content-title">직영영업팀 · 영업(기존업주) 담당자 편</div>
       </div>
     </a>
   </div>
@@ -385,7 +348,7 @@
           </div>
           <div class="step-info">
             <div class="step-name">우아한인재영입 사이트 지원</div>
-            <div class="step-desc">- 지원 링크 개별 발송 예정 (7/15~16 중)</div>
+            <div class="step-desc">- 지원 링크 개별 발송 예정</div>
             <div class="step-desc" style="margin-top:2px;">- PC에서 지원하기 가능</div>
           </div>
         </div>
@@ -411,38 +374,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- 특별 안내 배너 -->
-  <div class="gift-banner">
-    <span class="gift-badge">✨ 특별 안내</span>
-    <div class="gift-title">
-      <strong>7/19(일)까지 지원 완료</strong>하시면<br>
-      배민상품권 1만원을 드려요 🎉
-    </div>
-    <div class="gift-conditions">
-      <div class="gift-condition-item">
-        <div class="gift-condition-num">1</div>
-        <div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <div style="font-weight:700; color:rgba(255,255,255,0.9);">구글폼 작성</div>
-            <a href="https://forms.gle/LfpYhsjhBRExVhhk6" target="_blank" style="background:var(--mint); color:var(--navy); font-size:10px; font-weight:800; padding:3px 8px; border-radius:100px; text-decoration:none;">바로가기</a>
-          </div>
-          <div style="font-size:11.5px; color:rgba(255,255,255,0.5); margin-top:2px;">간단한 정보 입력</div>
-        </div>
-      </div>
-      <div class="gift-condition-item">
-        <div class="gift-condition-num">2</div>
-        <div>
-          <div style="font-weight:700; color:rgba(255,255,255,0.9);">채용사이트 지원 (PC 필수)</div>
-          <div style="font-size:11.5px; color:rgba(255,255,255,0.5); margin-top:2px;">구글폼 응답에 따라 발송받은 지원 링크로 지원 완료 (PC 필수)</div>
-        </div>
-      </div>
-    </div>
-    <hr class="gift-divider">
-    <p class="gift-schedule">
-      위 두 가지를 모두 완료하신 분께는<br>      <span style="color:var(--mint); font-weight:600;">7/20(월)</span>에 상품권 발송 예정이에요.
-    </p>
   </div>
 
 </div>
