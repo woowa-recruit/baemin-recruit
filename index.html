@@ -284,6 +284,7 @@
   }
   .friend-reward-item + .friend-reward-item { margin-top: 6px; }
   .friend-reward-item strong { color: var(--mint-deep); font-size: 14px; }
+  .friend-reward-item .coupon-label { font-weight: 400; color: var(--navy); }
   .chat-mock {
     border: 2px solid #FF3B30;
     border-radius: 14px;
@@ -293,6 +294,7 @@
   }
   .chat-mock:hover { background: #fff7f7; }
   .chat-bubble {
+    position: relative;
     font-size: 12.5px;
     line-height: 1.65;
     padding: 12px 14px;
@@ -306,6 +308,28 @@
     margin-left: auto;
     margin-bottom: 10px;
   }
+  .chat-bubble-sent::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    bottom: -2px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: #35FCDF;
+    border-bottom-left-radius: 16px;
+  }
+  .chat-bubble-sent::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    bottom: -2px;
+    right: -11px;
+    width: 11px;
+    height: 22px;
+    background: var(--white);
+    border-bottom-left-radius: 11px;
+  }
   .chat-link {
     display: block;
     margin-top: 4px;
@@ -318,6 +342,28 @@
     color: var(--text-main);
     border-radius: 14px 14px 14px 4px;
     margin-bottom: 0;
+  }
+  .chat-bubble-received::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    bottom: -2px;
+    left: -8px;
+    width: 20px;
+    height: 20px;
+    background: #ECECEC;
+    border-bottom-right-radius: 16px;
+  }
+  .chat-bubble-received::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    bottom: -2px;
+    left: -11px;
+    width: 11px;
+    height: 22px;
+    background: var(--white);
+    border-bottom-right-radius: 11px;
   }
   .chat-mock-label {
     text-align: center;
@@ -473,8 +519,8 @@
     <div class="friend-share-title-main">친구에게 추천하고<br>배민 쿠폰 받기</div>
     <p class="friend-share-sub">추천해주신 지인이 아래 단계에 도달하면 배민 쿠폰을 드립니다!!</p>
     <div class="friend-reward-list">
-      <div class="friend-reward-item">✔️ 면접 참여 시 — <strong>1만 원</strong></div>
-      <div class="friend-reward-item">✔️ 최종 입사 시 — <strong>10만 원</strong></div>
+      <div class="friend-reward-item">✔️ 면접 참여 시 — <span class="coupon-label">배민쿠폰</span> <strong>1만 원</strong></div>
+      <div class="friend-reward-item">✔️ 최종 입사 시 — <span class="coupon-label">배민쿠폰</span> <strong>10만 원</strong></div>
     </div>
     <p class="chat-mock-label">👇 친구에게 보낼 문구 복사하기</p>
     <div class="chat-mock" id="chatShareBtn" role="button" tabindex="0" aria-label="공유 문구 복사하기">
@@ -482,8 +528,8 @@
         배민에서 영업 직무 대규모 채용 중인데, 보다가 딱 네 생각 났어! 잘 맞을 것 같아 😊<br>
         추천이벤트로 가입하면 배민상품권도 준다는데<br>
         관심 있으면 지원해봐!<br><br>
-        ・면접 참여만 해도 → 배민선물하기 1만 원<br>
-        ・최종 입사 시 → 10만 원<br><br>
+        ・면접 참여만 해도 → 배민쿠폰 1만원<br>
+        ・최종 입사 시 → 배민쿠폰 10만원<br><br>
         받으면 나한테도 절반 주기다?ㅋㅋ
         <span class="chat-link">🔗 배민 채용 공고 보기</span>
       </div>
@@ -639,7 +685,7 @@
   });
 
   // 친구에게 전달할 링크: 클릭 시 공유 문구 복사 + 완료 알림
-  var SHARE_TEXT = "배민에서 영업 직무 대규모 채용 중인데, 보다가 딱 네 생각 났어! 잘 맞을 것 같아 😊\n추천이벤트로 가입하면 배민상품권도 준다는데\n관심 있으면 지원해봐!\n\n・면접 참여만 해도 → 배민선물하기 1만 원\n・최종 입사 시 → 10만 원\n\n받으면 나한테도 절반 주기다?ㅋㅋ\nhttps://woowa-recruit.github.io/baemin-recruit/friend.html";
+  var SHARE_TEXT = "배민에서 영업 직무 대규모 채용 중인데, 보다가 딱 네 생각 났어! 잘 맞을 것 같아 😊\n추천이벤트로 가입하면 배민상품권도 준다는데\n관심 있으면 지원해봐!\n\n・면접 참여만 해도 → 배민쿠폰 1만원\n・최종 입사 시 → 배민쿠폰 10만원\n\n받으면 나한테도 절반 주기다?ㅋㅋ\nhttps://woowa-recruit.github.io/baemin-recruit/friend.html";
 
   function copyShareText() {
     function done() {
