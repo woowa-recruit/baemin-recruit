@@ -439,8 +439,8 @@
         <div class="form-field">
           <label>관심직무</label>
           <div class="checkbox-group">
-            <label class="checkbox-item"><input type="checkbox" name="job" value="배민영업(신규업주)"> 배민영업(신규업주)</label>
-            <label class="checkbox-item"><input type="checkbox" name="job" value="배민영업(기존업주)"> 배민영업(기존업주)</label>
+            <label class="checkbox-item"><input type="checkbox" name="job" value="배민 영업(신규업주)"> 배민 영업(신규업주)</label>
+            <label class="checkbox-item"><input type="checkbox" name="job" value="배민 영업(기존업주)"> 배민 영업(기존업주)</label>
           </div>
         </div>
         <div class="form-field consent-field">
@@ -520,9 +520,15 @@
   <a href="https://career.woowahan.com" target="_blank">career.woowahan.com</a>
 </div>
 <script>
-  // ⚠️ 아래 URL을 Apps Script 웹앱 배포 후 발급받은 배포 URL로 바꿔주세요.
-  // (안내: 채팅에 적힌 "구글 시트 연동 설정 방법"을 따라 배포하시면 됩니다.)
-  var SCRIPT_URL = "https://script.google.com/a/macros/woowahan.com/s/AKfycbwwbEeZR6CLwcuDfrSpEGJMX-hf0HLoW8bzRuA8CRSANRcEoz5eK-IM3Wvzb4YG04XyVw/exec";
+  // 구글폼으로 데이터 전송 (Apps Script 웹앱은 조직 보안 정책상 외부 제출이 막혀서 구글폼 방식으로 전환)
+  var FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfEpK-OVHD4Em8hZzliRsiGHKb8rcUeTA9w8y1DMYK5N5y0dg/formResponse";
+  var FORM_ENTRY = {
+    name: 'entry.719535100',
+    phone: 'entry.2106944242',
+    email: 'entry.347928389',
+    job: 'entry.569861061',
+    consent: 'entry.1005340302'
+  };
 
   // 전화번호 자동 하이픈: 01012345678 입력 -> 010-1234-5678 로 자동 변환
   // (커서가 항상 맨 뒤로 튕기지 않도록, 편집 위치를 계산해서 유지합니다)
@@ -589,7 +595,7 @@
     submitBtn.disabled = !consentCheckbox.checked;
   });
 
-  // 제출 -> 구글 시트로 전송 (Apps Script 웹앱 연동)
+  // 제출 -> 구글폼으로 전송 (구글폼 응답이 연결된 구글시트에 자동 적재됨)
   document.getElementById('interestForm').addEventListener('submit', function (e) {
     e.preventDefault();
     if (!consentCheckbox.checked) return;
@@ -598,22 +604,22 @@
       .call(document.querySelectorAll('input[name="job"]:checked'))
       .map(function (cb) { return cb.value; });
 
-    var payload = {
-      name: document.getElementById('f-name').value,
-      phone: document.getElementById('f-phone').value,
-      email: document.getElementById('f-email').value,
-      jobs: jobs
-    };
+    var params = new URLSearchParams();
+    params.append(FORM_ENTRY.name, document.getElementById('f-name').value);
+    params.append(FORM_ENTRY.phone, document.getElementById('f-phone').value);
+    params.append(FORM_ENTRY.email, document.getElementById('f-email').value);
+    jobs.forEach(function (j) { params.append(FORM_ENTRY.job, j); });
+    params.append(FORM_ENTRY.consent, '동의합니다');
 
     submitBtn.disabled = true;
     var originalText = submitBtn.textContent;
     submitBtn.textContent = '제출 중…';
 
-    fetch(SCRIPT_URL, {
+    fetch(FORM_ACTION_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
     }).then(function () {
       alert('제출이 완료됐어요. 감사합니다!');
       document.getElementById('interestForm').reset();
