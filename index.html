@@ -319,11 +319,12 @@
     border-radius: 14px 14px 14px 4px;
     margin-bottom: 0;
   }
-  .chat-mock-hint {
+  .chat-mock-label {
     text-align: center;
-    font-size: 11.5px;
-    color: var(--text-sub);
-    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 10px;
   }
   /* ── 쿠폰지급조건 토글 ── */
   .coupon-terms { margin-top: 16px; border-top: 1px solid var(--gray-line); padding-top: 14px; }
@@ -332,7 +333,7 @@
     cursor: pointer; list-style: none; display: flex; align-items: center; gap: 4px;
   }
   .coupon-terms summary::-webkit-details-marker { display: none; }
-  .coupon-terms summary::after { content: '▾'; font-size: 10px; color: var(--text-sub); }
+  .coupon-terms summary::after { content: '▾'; font-size: 17px; font-weight: 900; color: var(--mint-deep); }
   .coupon-terms[open] summary::after { content: '▴'; }
   .coupon-terms-body {
     margin-top: 10px;
@@ -475,6 +476,7 @@
       <div class="friend-reward-item">✔️ 면접 참여 시 — <strong>1만 원</strong></div>
       <div class="friend-reward-item">✔️ 최종 입사 시 — <strong>10만 원</strong></div>
     </div>
+    <p class="chat-mock-label">👇 친구에게 보낼 문구 복사하기</p>
     <div class="chat-mock" id="chatShareBtn" role="button" tabindex="0" aria-label="공유 문구 복사하기">
       <div class="chat-bubble chat-bubble-sent">
         배민에서 영업 직무 대규모 채용 중인데, 보다가 딱 네 생각 났어! 잘 맞을 것 같아 😊<br>
@@ -483,11 +485,10 @@
         ・면접 참여만 해도 → 배민선물하기 1만 원<br>
         ・최종 입사 시 → 10만 원<br><br>
         받으면 나한테도 절반 주기다?ㅋㅋ
-        <span class="chat-link">https://woowa-recruit.github.io/baemin-recruit/friend.html</span>
+        <span class="chat-link">🔗 배민 채용 공고 보기</span>
       </div>
       <div class="chat-bubble chat-bubble-received">고마워 바로 해볼게 😍</div>
     </div>
-    <p class="chat-mock-hint">👆 눌러서 문구 복사하기</p>
 
     <details class="coupon-terms">
       <summary>※ <strong>쿠폰지급조건</strong></summary>
