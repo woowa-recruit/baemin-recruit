@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F7VWHH17JR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F7VWHH17JR');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>배민 직영영업팀 채용</title>
@@ -680,6 +688,7 @@
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString()
     }).then(function () {
+      gtag('event', 'interest_form_submit', { event_category: 'conversion' });
       alert('제출이 완료됐어요. 감사합니다!');
       document.getElementById('interestForm').reset();
       submitBtn.textContent = originalText;
@@ -695,6 +704,7 @@
   var SHARE_TEXT = "배민에서 영업 직무 대규모 채용 중인데, 보다가 딱 네 생각 났어! 잘 맞을 것 같아 😊\n추천인 통해서 아래와 같이 진행하면 혜택이 있대!\n\n・면접 참여만 해도 → 배민쿠폰 1만원\n・최종 입사 시 → 배민쿠폰 10만원\n\n관심 있으면 지원해봐!\n\n받으면 나한테도 절반 주기다?ㅋㅋ\nhttps://woowa-recruit.github.io/baemin-recruit/friend.html";
 
   function copyShareText() {
+    gtag('event', 'share_click', { event_category: 'engagement' });
     function done() {
       alert('완료되었습니다! 친구에게 전달해주세요!');
     }
